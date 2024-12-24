@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Chats</title>
+    <link rel="stylesheet" href="/chats.css">
+</head>
+
+<body>
+
+    <div id="display">
+        <div id="count">Total Chats: <%= result.length %></div>
+        <form method="get" action="/chats/new"><button>Add Chat</button></form>
+    </div>
+
+    <div id="main">
+    
+        <% for (let i=0; i<result.length; i++) { %>
+            
+            <div id="chat">
+                <div id="top">
+                    <div id="sender"><h3>From: <span style="font-style: italic; color: rgba(0, 0, 0, 0.562);"><%= result[i].from %></span></h3></div>
+                    <div id="reciver"><h3>To: <span style="font-style: italic; color: rgba(0, 0, 0, 0.562);"><%= result[i].to %></span></h3></div>
+                </div>
+                
+                <div id="message"><h2><%= result[i].message %></h2></div>
+
+                <div id="bottom">
+                    <form method="get" action="/chats/<%= result[i]._id %>"><button>Edit</button></form>
+                    <form method="post" action="/chats/<%= result[i]._id %>?_method=delete"><button>Delete</button></form>
+                </div>
+            </div>
+
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Chat</title>
+    <link rel="stylesheet" href="/edit.css">
+</head>
+
+<body>
+
+    <div id="card">
+
+        <form method="post" action="/chats/<%= chat._id %>?_method=patch">
+
+            <div id="top">
+                <div id="sender"><h3>From: <span style="font-style: italic; color: rgba(0, 0, 0, 0.562);"><%= chat.from %></span></h3></div>
+                <div id="reciver"><h3>To: <span style="font-style: italic; color: rgba(0, 0, 0, 0.562);"><%= chat.to %></span></h3></div>
+            </div>
+            
+            <textarea name="message" id="message"><%= chat.message %></textarea>
+    
+            <div id="bottom">
+                <button>Submit</button>
+            </div>
+
+        </form>
+        
+    </div>
+    
+</body>
+</html>
