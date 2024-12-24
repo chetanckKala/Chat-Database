@@ -77,7 +77,9 @@ app.post("/chats", (req, res)=>
 app.get("/chats/:id", async (req, res)=>
 {
     const chat = await Chat.findById(req.params.id)
-    // console.log(chat)
+    console.log(chat.created_at.toString().slice(0, 3))
+    console.log(chat.created_at.toString().slice(4, 15))
+    console.log(chat.created_at.toString().slice(16, 24))
     res.render("edit.ejs", {chat})
 })
 
